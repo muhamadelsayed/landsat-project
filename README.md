@@ -13,7 +13,7 @@ Before you begin, ensure you have met the following requirements:
 ### 1. Clone the Repository
 First, clone the repository to your local machine:
 ```sh
-git clone https://github.com/your-username/landsat-project.git
+git clone https://github.com/BasemAmr/landsat-project.git
 cd landsat-project
 ```
 
