@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useUserContext } from '../context/UserContext';
 
 const LocationInput = ({ onLocationChange }) => {
+    const { setUserLocation } = useUserContext();
     const [locationType, setLocationType] = useState('name'); // 'name' or 'coordinates'
     const [placeName, setPlaceName] = useState('');
     const [latitude, setLatitude] = useState('');
@@ -8,19 +10,25 @@ const LocationInput = ({ onLocationChange }) => {
 
     // Handle change for place name
     const handlePlaceNameChange = (e) => {
-        setPlaceName(e.target.value);
-        onLocationChange({ type: 'name', value: e.target.value });
+        const value = e.target.value;
+        setPlaceName(value);
+        onLocationChange({ type: 'name', value });
+        setUserLocation({ type: 'name', value });
     };
 
     // Handle change for coordinates
     const handleLatitudeChange = (e) => {
-        setLatitude(e.target.value);
-        onLocationChange({ type: 'coordinates', lat: e.target.value, lng: longitude });
+        const lat = e.target.value;
+        setLatitude(lat);
+        onLocationChange({ type: 'coordinates', lat, lng: longitude });
+        setUserLocation({ type: 'coordinates', lat, lng: longitude });
     };
 
     const handleLongitudeChange = (e) => {
-        setLongitude(e.target.value);
-        onLocationChange({ type: 'coordinates', lat: latitude, lng: e.target.value });
+        const lng = e.target.value;
+        setLongitude(lng);
+        onLocationChange({ type: 'coordinates', lat: latitude, lng });
+        setUserLocation({ type: 'coordinates', lat: latitude, lng });
     };
 
     return (
