@@ -1,0 +1,4 @@
+$input = @"
+protocol=https
+host=github.com
+"@
