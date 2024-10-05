@@ -17,7 +17,7 @@ function App() {
           </Routes>
         </main>
         <footer className="bg-blue-600 text-white p-4 text-center">
-          <p>&copy; 2023 My App</p>
+          <p>&copy; 2024 My App</p>
         </footer>
       </Router>
     </div>
